@@ -6,7 +6,7 @@ function PageNavigation() {
   return (
     <>
        <div className="container-fluid bg-light  ">
-            <NavLink to="/" className="text-decoration-none fw-bold">Home</NavLink>
+            <NavLink to="/ecommerce" className="text-decoration-none fw-bold">Home</NavLink>
        </div>
     </>
   )
