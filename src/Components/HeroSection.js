@@ -3,16 +3,16 @@ import React from 'react'
 function HeroSection(props) {
     return (
         <>
-            <div class="container-fluid  ">
+            <div className="container-fluid  ">
                 <div className="container py-5">
-                <div class="row">
-                    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6   my-auto">
+                <div className="row">
+                    <div className="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6   my-auto">
                         <p className='text-secondary mb-0  '>Welcome to</p>
                         <p className='fs-2 fw-bolder  mb-0'>E-Commerce {props.title}</p>
                        <p className='text-secondary'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, esse! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, tempora.</p> 
-                       <button type="button" class="btn btn-success">SHOW NOW</button>
+                       <button type="button" className="btn btn-success">SHOW NOW</button>
                     </div>
-                    <div class="col mt-2">
+                    <div className="col mt-2">
                         <img src="images/heroImage.jpg" alt="" id='main-img' className='img-fluid rounded ' />
                     </div>
                 </div>
