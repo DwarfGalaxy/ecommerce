@@ -22,8 +22,11 @@ li {
     font-family: 'Rubik Distressed', cursive;
 }
 
-#main-img {
+#main-img,.main-img {
     filter: drop-shadow(7px 7px 3px rgb(158, 158, 180));
+}
+.main-img:hover{
+    filter: drop-shadow(8px 8px 3px rgb(158, 158, 180));
 }
 
 @media screen and (max-width: 768px) {

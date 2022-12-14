@@ -3,12 +3,14 @@ import { useEffect } from 'react'
 import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
 import { MdDeliveryDining } from 'react-icons/md';
 import { FaHandshake } from 'react-icons/fa';
-import { AiFillStar,AiFillMinusCircle,AiFillPlusCircle } from 'react-icons/ai';
+import { AiFillMinusCircle,AiFillPlusCircle } from 'react-icons/ai';
 import { useContext } from 'react';
 import { AppContext } from '../Context/ProductContext';
 import { useLocation } from 'react-router-dom';
 import FormatPrice from '../Helpers/FormatPrice';
 import PageNavigation from './PageNavigation';
+import { useState } from 'react';
+import Stars from './Stars';
 const API="https://api.pujakaitem.com/api/products";
 
 
@@ -21,8 +23,8 @@ function SingleProduct() {
     getSingleProducts(`${API}?id=${id}`);
   }, []);
 
-  const {stars,company,reviews,price,description,id,name,category,stock}=SingleItem;
-  
+  const {stars,company,reviews,price,description,id,name,category,stock,image=[{url:""}]}=SingleItem;
+  const [imgUrl, setImgUrl] = useState("https://images.pexels.com/photos/1619651/pexels-photo-1619651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   return (
     <>
     <PageNavigation/>
@@ -31,22 +33,16 @@ function SingleProduct() {
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6  my-auto">
             <div className="d-flex justify-content-start">
               <div className="d-flex flex-column ">
-                
-                <figure className=' w-50 ms-auto me-5' >
-                  <img src="https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='img-fluid ' />
-                </figure>
-                <figure className=' w-50 ms-auto me-5'>
-                  <img src="https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='img-fluid ' />
-                </figure>
-                <figure className=' w-50 ms-auto me-5'>
-                  <img src="https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='img-fluid ' />
-                </figure>
-                <figure className=' w-50 ms-auto me-5'>
-                  <img src="https://images.pexels.com/photos/1275229/pexels-photo-1275229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='img-fluid ' />
-                </figure>
+                {image.map((currElem)=>{
+                  return (
+                    <figure className=' w-75 ms-auto me-4' id={currElem.id} onClick={()=>setImgUrl(currElem.url)} style={{cursor:"pointer"}}>
+                    <img src={currElem.url} alt="" className='img-fluid ' />
+                  </figure>
+                  )
+                })}
               </div>
-              <figure className='my-auto me-2'>
-                  <img src="https://images.pexels.com/photos/1619651/pexels-photo-1619651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='img-fluid ' />
+              <figure className='my-auto me-2 w-auto main-img '>
+                  <img src={imgUrl} alt="" className='img-fluid rounded' />
                </figure>
                 
             </div>
@@ -55,8 +51,7 @@ function SingleProduct() {
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
             <div>
                 <p className='fs-1 fw-bold'>{company}</p>
-                <AiFillStar className='text-warning' />
-                <span className='text-muted ms-2'>({reviews} customers reviews)</span>
+                <Stars stars={stars} reviews={reviews}/>
                 <p >MRP: <span className='text-decoration-line-through'>10000</span> </p>
                 <p className='text-primary'>Deal of the Day: Rs. <FormatPrice price={price}/></p>
 
@@ -80,7 +75,7 @@ function SingleProduct() {
                   </div>
                 </div>
                 <hr className='mt-0 ' />
-                <p><span className='text-muted'>Available:</span>  In Stock</p>
+                <p><span className='text-muted'>Available:</span>{stock>0?" In Stock":" Not Available"}  </p>
                 <p><span className='text-muted'>ID:</span> {id}</p>
                 <p><span className='text-muted'>Brand:</span> {name}</p>
                 <hr className='singleProductHR' />
