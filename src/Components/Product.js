@@ -6,7 +6,7 @@ import FormatPrice from '../Helpers/FormatPrice';
 function Product(Element) {
     const {category,id,image,name,price}=Element;
     return (
-        <NavLink to={`SingleProduct/${id}`} style={{textDecoration:"none"}}>
+        <NavLink to={`singleproduct/${id}`} style={{textDecoration:"none"}}>
         <div class="card card-1 border-0" >
             <img src={image} class="card-img-top" alt="..." />
             <div class="card-body">
