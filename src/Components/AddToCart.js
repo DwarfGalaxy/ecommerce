@@ -8,8 +8,8 @@ function AddToCart({items}) {
   return (
     <>
     {colors.map((currElem,index)=>{
-      return <button onClick={()=>setColors(currElem)} className={`btn btn-sm rounded-circle  me-1 border-0 ${currElem==color?"btnStyle activeBtn":"btnStyle"}`} style={{backgroundColor:currElem}} key={index}>
-        {currElem==color?<BsCheck className='fs-4 text-white fw-bolder'/>:null}
+      return <button onClick={()=>setColors(currElem)} className={`btn btn-sm rounded-circle  me-1 border-0 ${currElem===color?"btnStyle activeBtn":"btnStyle"}`} style={{backgroundColor:currElem}} key={index}>
+        {currElem===color?<BsCheck className='fs-4 text-white fw-bolder'/>:null}
       </button>
     })}
      
