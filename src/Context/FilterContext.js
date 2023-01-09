@@ -12,7 +12,7 @@ const initialState={
     filter_products:[],
     all_products:[],
     filter_error:false,
-    grid_view:true
+    grid_view:false
 }
 
 function FilterContext({children}) {
@@ -27,11 +27,18 @@ function FilterContext({children}) {
         dispatch({type:"SET_FILTER_ERROR"});
       }
     }, [products]);
+
+    const setGridView=()=>{
+      dispatch({type:"SET_GRID_VIEW"});
+    }
+    const setListView=()=>{
+      dispatch({type:"SET_LIST_VIEW"});
+    }
     
     
 
   return (
-    <ProductContext.Provider value={{...state}}>
+    <ProductContext.Provider value={{...state,setGridView,setListView}}>
         {children}
     </ProductContext.Provider>
   )

@@ -11,6 +11,16 @@ const reducer=(state,action)=>{
             filter_products:action.payload,
             all_products:action.payload
         }
+    }else if(action.type=="SET_GRID_VIEW"){
+        return {
+            ...state,
+            grid_view:true
+        }
+    }else if(action.type=="SET_LIST_VIEW"){
+        return {
+            ...state,
+            grid_view:false
+        }
     }else{
         return {
             ...state,

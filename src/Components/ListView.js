@@ -10,7 +10,7 @@ function ListView({ filterProducts }) {
         <>
             <div className="container  text-start">
                 {filterProducts.map((currElem)=>{
-                    return <div className="row mt-3 rounded p-3 list-view border-0">
+                    return <div className="row mt-3 rounded p-3 list-view border-0" key={currElem.id}>
                     <div className="col-xs-12 col-sm-12 col-md-5 col-xl-4 col-xxl-4   my-auto">
                         <img src={currElem.image} alt="" className='img-fluid ' />
                     </div>
