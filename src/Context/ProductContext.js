@@ -42,7 +42,6 @@ export function ProductContext({children}) {
       dispatch({type:"SET_SINGLE_ERROR"});
     }
   }
-
   useEffect(() => {
     getProducts(API);
   }, [])

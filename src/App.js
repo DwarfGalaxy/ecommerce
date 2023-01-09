@@ -16,12 +16,12 @@ function App() {
       <BrowserRouter>
       <Header/>
         <Routes>
-          <Route exact path='/ecommerce' element={<Home />} />
+          <Route exact path='/' element={<Home />} />
           <Route exact path='/about' element={<About />} />
-          <Route exact path='/products' element={<Products />} />
+          <Route exact path='/products' element={<Products />}/>
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/cart' element={<Cart />} />
-          <Route exact path='ecommerce/singleproduct/:id' element={<SingleProduct />} />
+          <Route exact path='/:id' element={<SingleProduct />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
         <Footer/>

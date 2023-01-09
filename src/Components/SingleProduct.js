@@ -3,17 +3,17 @@ import { useEffect } from 'react'
 import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
 import { MdDeliveryDining } from 'react-icons/md';
 import { FaHandshake } from 'react-icons/fa';
-import { AiFillMinusCircle,AiFillPlusCircle } from 'react-icons/ai';
 import { useContext } from 'react';
 import { AppContext } from '../Context/ProductContext';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import FormatPrice from '../Helpers/FormatPrice';
 import PageNavigation from './PageNavigation';
 import { useState } from 'react';
 import Stars from './Stars';
+import AddToCart from './AddToCart';
+import CartAmountToggle from './CartAmountToggle';
+
 const API="https://api.pujakaitem.com/api/products";
-
-
 
 function SingleProduct() {
   const {getSingleProducts,isSingleLoading,SingleItem}= useContext(AppContext);
@@ -23,7 +23,8 @@ function SingleProduct() {
     getSingleProducts(`${API}?id=${id}`);
   }, []);
 
-  const {stars,company,reviews,price,description,id,name,category,stock,image=[{url:""}]}=SingleItem;
+  const {stars,company,reviews,price,description,id,name,stock,image=[{url:""}]}=SingleItem;
+  console.log(image);
   const [imgUrl, setImgUrl] = useState("https://images.pexels.com/photos/1619651/pexels-photo-1619651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   return (
     <>
@@ -35,7 +36,7 @@ function SingleProduct() {
               <div className="d-flex flex-column ">
                 {image.map((currElem)=>{
                   return (
-                    <figure className=' w-75 ms-auto me-4' id={currElem.id} onClick={()=>setImgUrl(currElem.url)} style={{cursor:"pointer"}}>
+                    <figure className=' w-75 ms-auto me-4'  onClick={()=>setImgUrl(currElem.url)} style={{cursor:"pointer"}} key={currElem.id}>
                     <img src={currElem.url} alt="" className='img-fluid ' />
                   </figure>
                   )
@@ -82,25 +83,15 @@ function SingleProduct() {
 
                 <div className="d-flex justify-content-start">
                   <p className='text-muted me-2'>Color:  </p>
-                  <div className="form-check">
-                    <input className="form-check-input bg-secondary border-0" type="radio" value="" id="flexCheckDefault" name='productColor'/>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input " type="radio" value="" id="flexCheckDefault" name='productColor' />
-                  </div>
+                  <AddToCart items={SingleItem}/>
                 </div>
 
 
-                <div className="d-flex justify-content-start mb-3 ms-2">
-                  <button className='btn   p-0 '><AiFillMinusCircle className='fs-3 '/></button>
-                  <p className='fs-5 mx-1 my-auto'>1</p>
-                 <button className='btn   p-0'><AiFillPlusCircle className=' fs-3'/></button> 
-
-                </div>
+                <CartAmountToggle SingleItem={SingleItem}/>
               </div>
            
 
-            <button className='btn btn-success'>Add to Cart</button>
+            <NavLink to="/cart"><button className='btn btn-success'>Add to Cart</button></NavLink>
 
           </div>
 

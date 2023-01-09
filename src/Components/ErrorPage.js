@@ -9,7 +9,7 @@ function ErrorPage() {
       <p className='fw-bolder fs-1'>404</p>
       <p className='fs-1'>UH OH! You're lost.</p>
       <p>The page you are looking for does not exist. How you got here is a mystery. But you can click the button below to go back to the homepage.</p>
-      <NavLink className="btn btn-primary" to="/ecommerce">HOME</NavLink>
+      <NavLink className="btn btn-primary" to="/">HOME</NavLink>
     </div>
     </>
   )

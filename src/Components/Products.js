@@ -1,8 +1,22 @@
 import React from 'react'
+import FilterSection from './FilterSection';
+import ProductList from './ProductList';
+import Sort from './Sort';
+
 
 function Products() {
   return (
-    <div>Products</div>
+    <>
+      <div className="container mt-5">
+        <div className="row">
+         <FilterSection/>
+          <div className="col border">
+            <Sort/>
+            <ProductList/>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

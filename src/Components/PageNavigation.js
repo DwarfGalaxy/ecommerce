@@ -9,7 +9,7 @@ function PageNavigation() {
   return (
     <>
        <div className="container-fluid bg-light  ">
-            <NavLink to="/ecommerce" className="text-decoration-none fw-bold">Home/  
+            <NavLink to="/" className="text-decoration-none fw-bold">Home/  
            <span className='text-muted'> {SingleItem.name}</span> </NavLink>
        </div>
     </>

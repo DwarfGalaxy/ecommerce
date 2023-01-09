@@ -8,7 +8,7 @@ function Header() {
         <>
             <nav className="navbar navbar-expand-lg bg-light ">
                 <div className="container-fluid ">
-                    <NavLink className="navbar-brand border-0 mx-auto" to="/ecommerce">
+                    <NavLink className="navbar-brand border-0 mx-auto" to="/">
                        <img src="images/logo.png" alt="logo" className=' img-fluid rounded' id='logo' />
                     </NavLink>
                     <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,7 @@ function Header() {
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul className="navbar-nav  ms-auto text-center">
                             <li className="nav-item mt-1">
-                                <NavLink className="nav-link " aria-current="page" to="/ecommerce">Home</NavLink>
+                                <NavLink className="nav-link " aria-current="page" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item mt-1">
                                 <NavLink className="nav-link " aria-current="page" to="/about">About</NavLink>
