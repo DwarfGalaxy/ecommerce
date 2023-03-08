@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-1,
+.card-1,
+.container-2,.card-2 {
+    background-color: rgb(221, 228, 233);
+}
+
+li {
+    text-transform: uppercase;
+}
+
+#logo {
+    filter: drop-shadow(2px 2px 2px rgb(167, 157, 157));
+}
+
+.nav-link,.container-3,p,.btn {
+    font-family: 'Roboto Slab', serif;
+}
+
+#main-img,.main-img {
+    filter: drop-shadow(7px 7px 3px rgb(158, 158, 180));
+}
+.main-img:hover{
+    filter: drop-shadow(8px 8px 3px rgb(158, 158, 180));
+}
+
+@media screen and (max-width: 768px) {
+    .mobile {
+        margin-bottom: 8px !important;
+    }
+    .mobile-footer {
+        margin-top: 14px;
+    }
+}
+
+.card-1 {
+    filter: drop-shadow(2px 2px 2px rgb(158, 158, 180));
+}
+
+.container-3,.btn-footer{
+    background-color: rgba(6,19,45,255);
+}
+.card-1:hover{
+    filter: drop-shadow(3px 3px 3px rgb(158, 158, 180));
+}
+
+.card-2:hover{
+    filter: drop-shadow(2px 2px 2px rgb(158, 158, 180)); 
+}
+.textSize{
+    font-size: small;
+}
+.singleProductHR{
+    border: 1px solid black !important;
+}
+.btnStyle{
+    width: 1.3rem;
+    height: 1.3rem;
+    opacity: 0.4;
+    padding-left: 0;
+    padding-top: 0;
+}
+.btnStyle:hover{
+    opacity: 1;
+}
+.activeBtn{
+    opacity: 1;
+}
+.allStyle:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width: 576px) {
+    .margin-accessories{
+        margin-right: 10px;
+    }
+}
+.slider {
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  .list-view:hover{
+    cursor: pointer;
+    opacity: 1;
+    background-color: rgb(240, 240, 243);
+    
+  }
